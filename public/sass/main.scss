@@ -1,0 +1,22 @@
+@import "./abstracts/variables";
+@import "./abstracts/utilities";
+@import "./abstracts/animation";
+
+@import "./base/base";
+@import "./base/typography";
+
+@import "./components/side-nav";
+@import "./components/bg-video";
+@import "./components/btn";
+@import "./components/blogs";
+@import "./components/flex-list";
+
+@import "./layout/header";
+@import "./layout/insight";
+@import "./layout/join";
+@import "./layout/change";  
+@import "./layout/approach";
+@import "./layout/footer";  
+
+@import "./page/single_blog";
+@import "./page/create-blog";

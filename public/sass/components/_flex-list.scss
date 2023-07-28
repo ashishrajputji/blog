@@ -1,0 +1,29 @@
+.flex-list{
+    display: flex;
+    justify-content: space-between;
+    @media screen and (max-width : 880px) {
+        flex-wrap: wrap;
+        justify-content: center;
+        column-gap: 2rem;
+        row-gap: 2rem;
+    }
+    
+    &-item{
+        list-style-type: none;
+
+        &-link{
+            &,&:link,&:active{
+                text-decoration: none;
+                font-size: 2rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                transition: all .5s ease-in;
+            }
+            &:hover, &:active{
+                padding-bottom: 1rem ;
+                border-bottom: 2.5px solid $color-primary-yellow;
+
+            }
+        }
+    }
+}

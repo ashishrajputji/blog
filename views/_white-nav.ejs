@@ -1,0 +1,83 @@
+<div class="u-nav-static u-margin-bottom" id="nav">
+    <nav class="header__main__nav u-bg-white">
+        
+        <i class="fa fa-bars header__main__nav--icon u-color-black" aria-hidden="true"></i>
+        <div class="header__main__nav--center">
+            <img src="../img/nature-logo.png" alt="logo">
+            <span>&nbsp;</span>
+            <a href="/" class="u-text-dec-none"> <h2 class="heading-secondary u-color-black">Nature Explorer</h2> </a>  
+        </div>
+        <div class="header__main__nav--end">
+            <% if(loggedIn == 'false'){ %>
+                <img src="../img/nature-logo.png" alt="login/sign">
+            <% } else { %>
+                <div>
+                    <h3 class="heading-tertiary u-no-margin u-color-primary-yellow">Hi, <%= name %></h3>
+                    <h3 class="heading-tertiary u-no-margin u-color-black"><%= username %></h3>
+                </div>
+               
+                <img src="../img/nature-logo.png" alt="login/sign"> 
+            <% } %>
+            
+        </div>
+    </nav>
+    <div class="side__nav u-bg-black-translucent" id="side-navigation" >
+        <div class="side__nav__container ">
+            <ul class="side__nav__container__list">
+                <li class="side__nav__container__list-item">
+                    <i class="fa fa-times side__nav__container__list-item-abort   u-color-black" aria-hidden="true"></i>
+                </li>
+                <li class="side__nav__container__list-item">
+                    <a href="/" class="side__nav__container__list-item-link">Home</a>
+                </li>
+                <% if(loggedIn == 'false') {%>
+                    <li class="side__nav__container__list-item">
+                        <a href="/login" class="side__nav__container__list-item-link">Login</a>
+                    </li>
+                    <li class="side__nav__container__list-item">
+                        <a href="/signup" class="side__nav__container__list-item-link">SignUp</a>
+                    </li>
+                    <% } if((loggedIn == 'true' && role == 'admin' ) || (loggedIn == 'true' && role == 'employee')){ %>
+                        <li class="side__nav__container__list-item">
+                            <a href="/create-blog" class="side__nav__container__list-item-link">Create Blogs</a>
+                        </li>
+                        <li class="side__nav__container__list-item">
+                            <a href="/signup" class="side__nav__container__list-item-link">SignUp</a>
+                        </li>
+                        <li class="side__nav__container__list-item">
+                            <a href="/logout" class="side__nav__container__list-item-link">Logout</a>
+                        </li>
+                    <% } else if(loggedIn == 'true' && role == 'user') {%> 
+                    <li class="side__nav__container__list-item">
+                        <a href="/logout" class="side__nav__container__list-item-link">Logout</a>
+                    </li>
+                    <% } %>
+                <li class="side__nav__container__list-item">
+                    <a href="/blogs" class="side__nav__container__list-item-link">Blogs</a>
+                </li>
+                <li class="side__nav__container__list-item">
+                    <a href="/blogs/animals" class="side__nav__container__list-item-link">Animals</a>
+                </li>
+                <li class="side__nav__container__list-item">
+                    <a href="/blogs/birds" class="side__nav__container__list-item-link">Birds</a>
+                </li>
+                <li class="side__nav__container__list-item">
+                    <a href="/blogs/forest" class="side__nav__container__list-item-link">Forests</a>
+                </li>
+                <li class="side__nav__container__list-item">
+                    <a href="/blogs/sea" class="side__nav__container__list-item-link">Sea</a>
+                </li>
+                <li class="side__nav__container__list-item">
+                    <a href="/blogs/wildlife-reserves" class="side__nav__container__list-item-link">wildlife Reserves</a>
+                </li>
+                <li class="side__nav__container__list-item">
+                    <a href="/about-us" class="side__nav__container__list-item-link">About Us</a>
+                </li>
+                <li class="side__nav__container__list-item">
+                    <a href="/privacy-policy" class="side__nav__container__list-item-link">Privacy Policy</a>
+                </li>
+               
+            </ul>
+        </div>
+    </div>
+</div>

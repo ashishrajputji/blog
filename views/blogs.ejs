@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs - Nature Explorer</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="../img/nature-logo.png" type="image/x-icon">
+
+    <script src="https://kit.fontawesome.com/5c14429a9d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <div id="top"></div>
+    <header class="header header-other">
+        <%- include("_white-nav") -%>
+        <div class="header__center u-bg-black-translucent">
+            <h1 class="heading-primary u-color-white">
+                SCIENCE & EXPLORATION
+            </h1>
+            <p class="paragraph u-color-white">
+                New Evidence Suggests Intentional Burials and Use of Symbols by Other Hominins Hundreds of Thousands of Years Before Us.
+            </p>
+        </div>
+        <div class="header__bottom u-bg-black-translucent ">
+            <h1 class="heading-primary u-color-white">NATURE EXPLORER NEWSROOM</h1>
+           <div class="u-pos-relative-with-z">
+            <ul class="flex-list">
+                
+                <li class="flex-list-item"><a href="/blogs/animals" class="flex-list-item-link u-color-white">ANIMALS</a></li>
+                <li class="flex-list-item"><a href="/blogs/birds" class="flex-list-item-link u-color-white">BIRDS</a></li>
+                <li class="flex-list-item"><a href="/blogs/forest" class="flex-list-item-link u-color-white">FOREST</a></li>
+                <li class="flex-list-item"><a href="/blogs/sea" class="flex-list-item-link u-color-white">SEA</a></li>
+                <li class="flex-list-item"><a href="/blogs/wildlife-reserves" class="flex-list-item-link u-color-white">WILDLIFE RESERVES</a></li>
+                <li class="flex-list-item"><a href="/blogs/other-blogs" class="flex-list-item-link u-color-white">Other Blogs</a></li>
+            </ul>
+           </div>
+        </div>
+        <div class="background_video background_video-img">
+            <img src="../img/page-nav-bg.jpg" alt="">
+        </div>
+    </header>
+    
+    <main class="u-margin-top-xl">
+        <section class="blog-page">
+            <h1 class="heading-secondary u-color-black  u-text-center">LATEST POSTS </h1>
+            <div class="blogs">
+                <% if(blogs.length > 0){ %>
+                    <% blogs.forEach((blog)=>{ %>
+                        <div class="blogs-item">
+                            <img src="
+                            data:<%= blog.image.contentType %>;base64,<%= blog.image.data.toString('base64') %>
+                            "
+                             alt="">
+                            <p class="paragraph">
+                                <%= blog.intro %>
+                            </p>
+                            <a href="/blog/<%= blog._id %>" class="btn-white">View Full Article</a>
+                            <% if((loggedIn == 'true' && role == 'admin') || (loggedIn == 'true' && role == 'employee')){ %>
+                                <div>
+                                    <a href="/blog/delete/<%= blog._id %>" class="btn-red ">Delete Blog</a>
+                                    <a href="/edit-blog/<%= blog._id %>" class="btn-yellow">Edit Blog</a>
+                                </div>
+                            <% } %>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <h1 class="heading-primary u-color-grey">No Blog Found either your reached limit or entered wrong url</h1>
+                    <div>
+                        <h2 class="heading-tertiary u-color-twitter">Please try searching for other categories</h2>
+                    </div>
+                  
+                    <% } %>
+              
+
+            </div>
+           <% if(param == 'blogs'){ %>
+                <div class="btn__container">
+                    <% if(previous) { %>
+                    <a href="/blogs?page=<%= previous %>" class="btn__container-pagination">Prev</a>
+                    <% } %>
+                    <% if(nextPage) { %>
+                    <a href="/blogs?page=<%= nextPage %>" class="btn__container-pagination">Next</a>
+                    <% } %>
+                </div>
+         <%   }else { %>
+                <div class="btn__container">
+                    <% if(previous) { %>
+                    <a href="/blogs/<%= param %>?page=<%= previous %>" class="btn__container-pagination">Prev</a>
+                    <% } %>
+                    <% if(nextPage) { %>
+                    <a href="/blogs/<%= param %>?page=<%= nextPage %>" class="btn__container-pagination">Next</a>
+                    <% } %>
+                </div>
+         <%   } %>
+           
+        </section>
+    </main>
+<%- include("_footer") -%>
+</body>
+</html>

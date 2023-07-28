@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature Explorer | Home Nature Explorer</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="../img/nature-logo.png" type="image/x-icon">
+
+    <script src="https://kit.fontawesome.com/5c14429a9d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <div id="top"></div>
+    <header class="header">
+        <div class="u-nav-static u-margin-bottom" id="nav">
+            <nav class="header__main__nav u-bg-black">
+                
+                <i class="fa fa-bars header__main__nav--icon u-color-white" aria-hidden="true"></i>
+                <div class="header__main__nav--center">
+                    <img src="../img/nature-logo.png" alt="logo">
+                    <span>&nbsp;</span>
+                    <a href="/" class="u-text-dec-none"> <h2 class="heading-secondary u-color-white">Nature Explorer</h2> </a>  
+                </div>
+                <div class="header__main__nav--end">
+                    <% if(loggedIn == 'false'){ %>
+                        <img src="../img/nature-logo.png" alt="login/sign">
+                    <% } else { %>
+                        <div>
+                            <h3 class="heading-tertiary u-no-margin u-color-primary-yellow">Hi, <%= name %></h3>
+                            <h3 class="heading-tertiary u-no-margin u-color-white"><%= username %></h3>
+                        </div>
+                        <img src="../img/nature-logo.png" alt="login/sign">
+                    <% } %>
+                    
+                </div>
+                
+            </nav>
+            <div class="side__nav u-bg-black-translucent" id="side-navigation" >
+                <div class="side__nav__container ">
+                    <ul class="side__nav__container__list">
+                        <li class="side__nav__container__list-item">
+                            <i class="fa fa-times side__nav__container__list-item-abort   u-color-black" aria-hidden="true"></i>
+                        </li>
+                        <li class="side__nav__container__list-item">
+                            <a href="/" class="side__nav__container__list-item-link">Home</a>
+                        </li>
+                        <% if(loggedIn == 'false') {%>
+                        <li class="side__nav__container__list-item">
+                            <a href="/login" class="side__nav__container__list-item-link">Login</a>
+                        </li>
+                        <li class="side__nav__container__list-item">
+                            <a href="/signup" class="side__nav__container__list-item-link">SignUp</a>
+                        </li>
+                        <% } if((loggedIn == 'true' && role == 'admin' ) || (loggedIn == 'true' && role == 'employee')){ %>
+                            <li class="side__nav__container__list-item">
+                                <a href="create-blog" class="side__nav__container__list-item-link">Create Blogs</a>
+                            </li>
+                            <li class="side__nav__container__list-item">
+                                <a href="/signup" class="side__nav__container__list-item-link">SignUp</a>
+                            </li>
+                            <li class="side__nav__container__list-item">
+                                <a href="/logout" class="side__nav__container__list-item-link">Logout</a>
+                            </li>
+                        <% } else if(loggedIn == 'true' && role == 'user') {%> 
+                        <li class="side__nav__container__list-item">
+                            <a href="/logout" class="side__nav__container__list-item-link">Logout</a>
+                        </li>
+                        <% } %>
+                        <li class="side__nav__container__list-item">
+                            <a href="/blogs" class="side__nav__container__list-item-link">Blogs</a>
+                        </li>
+                        <li class="side__nav__container__list-item">
+                            <a href="/blogs/animals" class="side__nav__container__list-item-link">Animals</a>
+                        </li>
+                        <li class="side__nav__container__list-item">
+                            <a href="blogs/birds" class="side__nav__container__list-item-link">Birds</a>
+                        </li>
+                        <li class="side__nav__container__list-item">
+                            <a href="/blogs/forest" class="side__nav__container__list-item-link">Forests</a>
+                        </li>
+                        <li class="side__nav__container__list-item">
+                            <a href="/blogs/sea" class="side__nav__container__list-item-link">Sea</a>
+                        </li>
+                        <li class="side__nav__container__list-item">
+                            <a href="/blogs/wildlife-reserves" class="side__nav__container__list-item-link">wildlife Reserves</a>
+                        </li>
+                        <li class="side__nav__container__list-item">
+                            <a href="/about-us" class="side__nav__container__list-item-link">About Us</a>
+                        </li>
+                        <li class="side__nav__container__list-item">
+                            <a href="/privacy-policy" class="side__nav__container__list-item-link">Privacy Policy</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="header__center">
+            <h1 class="heading-primary u-color-white">
+                The Rising Star Cave System
+            </h1>
+            <p class="paragraph u-color-white">
+                With support from Lyda Hill Philanthropies and the National Geographic Society,
+                Explorer in Residence Lee Berger and his team have yielded incredible discoveries—with many more to come.
+            </p>
+            <a href="/blogs" class="btn-yellow">Explore Now</a>
+        </div>
+        <div class="header__bottom u-bg-black">
+            <h1 class="heading-tertiary u-color-grey">Our Mission</h1>
+            <h2 class="heading-secondary u-color-white">
+                Using the power of science, exploration,  education, and storytelling to protect 
+                <span>the wonder of  Nature 
+                    <span>&nbsp;</span>
+                </span>
+            </h2>
+        </div>
+        <div class="background_video">
+            <video src="../img/bg-video.mp4" autoplay muted loop>
+                
+            </video>
+        </div>
+    </header>
+
+    <main >
+        <!-- Our Approaches -->
+        <section class="approach">
+            <div class="approach__item approach__item-1">
+                <h3 class="heading-tertiary u-color-grey">OUR APPROACH</h3>
+                <h2 class="heading-secondary u-color-black bold">
+                    Investing in a diverse, global community of changemakers
+                </h2>
+            </div>
+            <div class="approach__item approach__item-2">
+                <div class="approach__item-list">
+                    <img src="https://www.nationalgeographic.org/wp-content/uploads/2021/10/Exploration_Icon.svg" alt="">
+                    <h2 class="heading-tertiary u-color-black bold">Bold Explorer</h2>
+                    <p class="paragraph u-color-grey">
+                        We fund a global community of Explorers who investigate, 
+                        test hypotheses, innovate, stretch their creativity, and
+                         push the boundaries of traditional
+                         thinking in ways that fundamentally change our world.
+                    </p>
+                </div>
+                <div class="approach__item-list">
+                    <img src="https://www.nationalgeographic.org/wp-content/uploads/2021/10/Impact_Programs_Sketch_Icon.svg" alt="">
+                    <h2 class="heading-tertiary u-color-black">Impactful Programs</h2>
+                    <p class="paragraph u-color-grey">
+                        We support and cultivate a portfolio of diverse, Explorer-led
+                         programs within our five focus areas to drive impact and fulfill
+                          our
+                         mission of illuminating and protecting our world.
+                    </p>
+                </div>
+                <div class="approach__item-list">
+                    <img src="https://www.nationalgeographic.org/wp-content/uploads/2021/10/Edu_Sketch_Icon.svg" alt="">
+                    <h2 class="heading-tertiary u-color-black bold">Connection & Education</h2>
+                    <p class="paragraph u-color-grey">
+                        We leverage our global expertise, platforms, and 
+                        unparalleled convening power to inspire educators, youth, 
+                        and future Explorers and help more people learn about, care
+                         for, and protect our world.
+                    </p>
+                </div>
+                <div class="approach__item-list">
+                    <img src="https://www.nationalgeographic.org/wp-content/uploads/2021/10/Stewardship_Sketch_Icon.svg" alt="">
+                    <h2 class="heading-tertiary u-color-black bold">Responsible Stewardship</h2>
+                    <p class="paragraph u-color-grey">
+                        Our innovative business model allows us to invest every 
+                        philanthropic dollar—100% of donations—directly to our 
+                        Explorers and programs.
+                         Join us to support what matters most to you.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- Insights -->
+        <section class="insight">
+            <h3 class="heading-tertiary u-color-grey">Our Insight</h3>
+            <h2 class="heading-secondary u-color-black">Latest prespectives, blogs and stories</h2>
+            <div class="blogs">
+                <% if(blogs.length>2){ %>
+                    <% for(var i=blogs.length-1; i>blogs.length-4;i--){ %>
+                        <div class="blogs-item">
+                            <img src="
+                            data:<%= blogs[i].image.contentType %>;base64,<%= blogs[i].image.data.toString('base64') %>
+                            "
+                             alt="">
+                            <p class="paragraph">
+                                <%= blogs[i].intro %>
+                            </p>
+                            <a href="/blog/<%= blogs[i]._id %>" class="btn-white">View Full Article</a>
+                        </div>
+                        <% } %>
+               <% } else if(blogs.length === 0) { %>
+                    <h1 class="heading-primary u-color-grey">No Blog Found</h1>
+                <% } else { %>
+                    <% blogs.forEach((blog)=>{ %>
+                        <div class="blogs-item">
+                            <img src="
+                            data:<%= blog.image.contentType %>;base64,<%= blog.image.data.toString('base64') %>
+                            "
+                             alt="">
+                            <p class="paragraph">
+                                <%= blog.intro %>
+                            </p>
+                            <a href="/blog/<%= blog._id %>" class="btn-white">View Full Article</a>
+                        </div>
+    
+                    <% }) %>
+                <% } %>  
+            </div>
+            <a href="/blogs" class="btn-white">Read More</a>
+        </section>
+        <!-- Join Us -->
+        <section class="join">
+            <div class="join__container">
+                <div class="join__container__item ">
+                    <h3 class="heading-tertiary u-color-grey">JOIN US</h3>
+                    <h2 class="heading-secondary u-color-black">Make a difference
+                        <span>&nbsp;</span>
+                    </h2>
+                    <p class="paragraph">
+                        At Nature Explorer, we believe that exploration starts with you. That means when you give, 100 percent of your tax-deductible contribution will go directly to our Explorers working across our five key focus areas. Your support enables Explorers to make important discoveries, pursue historic achievements, and push the boundaries of 
+                        innovation to build a better future.
+                    </p>
+                </div>
+                <div class="join__container__item">
+                    <iframe width="80%" height="240px"
+                    src="https://www.youtube.com/embed/dphagk4O5qA?muted=1">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+        <!-- Change the World -->
+        <section class="change">
+            <h3 class="heading-tertiary u-color-grey">CHANGE THE WORLD</h3>
+            <h2 class="heading-secondary u-color-black">Your Impact Begins today!</h2>
+            <div class="blogs">
+                
+                <% if(blogs.length>2){ %>
+                    <% for(var i=0; i<3;i++){ %>
+                        <div class="blogs-item">
+                            <img src="
+                            data:<%= blogs[i].image.contentType %>;base64,<%= blogs[i].image.data.toString('base64') %>
+                            "
+                             alt="">
+                            <p class="paragraph">
+                                <%= blogs[i].intro %>
+                            </p>
+                            <a href="/blog/<%= blogs[i]._id %>" class="btn-white">View Full Article</a>
+                        </div>
+                        <% } %>
+               <% } else if(blogs.length === 0) { %>
+                    <h1 class="heading-primary u-color-grey">No Blog Found</h1>
+                <% } else { %>
+                    <% blogs.forEach((blog)=>{ %>
+                        <div class="blogs-item">
+                            <img src="
+                            data:<%= blog.image.contentType %>;base64,<%= blog.image.data.toString('base64') %>
+                            "
+                             alt="">
+                            <p class="paragraph">
+                                <%= blog.intro %>
+                            </p>
+                            <a href="/blog/<%= blog._id %>" class="btn-white">View Full Article</a>
+                        </div>
+    
+                    <% }) %>
+                <% } %>    
+              
+            </div>
+            <a href="/blogs" class="btn-white">Read More</a>
+        </section>
+    </main>
+
+    <%- include("_footer") -%>
+</body>
+</html>

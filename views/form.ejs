@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title ><%= param %> |  Nature Explorer</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="../img/nature-logo.png" type="image/x-icon">
+
+    <script src="https://kit.fontawesome.com/5c14429a9d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <div id="top"></div>
+    <%- include("_white-nav") -%>
+
+   <main class="u-margin-top-xl">
+    <section class="form-container">
+        
+           <!-- Login Users -->
+            <% if(param == 'login'){ %>
+            <form class="blog-form u-bg-black-translucent" method="post" action="/<%= param %>">
+                <% if(message.length > 1) { %>
+            
+                <div>
+                    <h2 class="heading-secondary u-color-instagram"><%= message %></h2>
+                </div>
+                <% } %>
+                <div>
+                    <h2 class="heading-secondary u-color-primary-yellow">Login</h2>
+                </div>
+                <div>
+                    <input type="email" name="username" required
+                      class="input__blog "
+                     placeholder="ashish@gmail.com">
+                </div>
+               <div>
+                <input type="password" name="password" required
+                  class="input__blog "
+                 placeholder="password">
+               </div>
+               <button type="submit" class="btn-yellow"><%= param %></button>
+            </form>    
+            <!--forget password --> 
+            <%} else if(param == 'forget-password'){ %>
+                <form class="blog-form u-bg-black-translucent" method="post" action="/<%= param %>">
+                    <% if(message.length > 1) { %>
+                        <div>
+                            <h2 class="heading-secondary u-color-instagram"><%= message %></h2>
+                        </div>
+                        <% } %>
+                    <div>
+                        <h2 class="heading-secondary u-color-primary-yellow">Forget password</h2>
+                    </div>
+                    <div>
+                        <input type="email" name="email" required
+                          class="input__blog "
+                         placeholder="username@email.com">
+                    </div>
+                   <div>
+                   <button type="submit" class="btn-yellow">Generate OTP</button>
+                </form>  
+                <!-- Reset Password -->
+                <%} else if(param == 'reset-password'){ %>
+                    
+                    <form class="blog-form u-bg-black-translucent" method="post" action="/<%= param %>">
+                        <% if(message.length > 1) { %>
+                            <div>
+                                <h2 class="heading-tertiary u-color-instagram"><%= message %></h2>
+                            </div>
+                            <% } %>
+                        <div>
+                            <h2 class="heading-secondary u-color-primary-yellow">Forget password</h2>
+                        </div>
+                        <div>
+                            <input type="email" name="email" required
+                              class="input__blog "
+                             placeholder="username@email.com">
+                        </div>
+                        <div>
+                            <input type="text" name="otp" required
+                              class="input__blog "
+                             placeholder="O T P">
+                        </div>
+                        <div>
+                            <input type="password" name="password" required
+                              class="input__blog "
+                             placeholder="Password">
+                        </div>
+                       <div>
+                       <button type="submit" class="btn-yellow">Reset Password</button>
+                    </form> 
+               <!-- Signup users -->
+            <% } else if(param == 'signup' ){ %>
+            <form class="blog-form u-bg-black-translucent" method="post" action="/<%= param %>">
+                <div>
+                    <h2 class="heading-secondary u-color-primary-yellow">Sign Up</h2>
+                </div>
+                <div>
+                    <input type="text" name="name" required
+                      class="input__blog "
+                     placeholder="Your Name : Ashish Rajput">
+                </div>
+                <div>
+                    <input type="email" name="username" required
+                      class="input__blog "
+                     placeholder="Your email : ashish@gmail.com">
+                </div>
+               <div>
+                <input type="password" name="password" required
+                  class="input__blog "
+                 placeholder="Create password">
+               </div>
+               <div>
+                <% if(loggedIn == 'false'){ %>
+                    <input type="hidden" name="role" required  value="user"
+                    class="input__blog "
+                   placeholder="Create password">
+                 </div>
+                <% } else if(loggedIn == 'true' ){ %>
+                    <div>
+                        <select name="role" id="">
+                            <option value="admin">Admin</option>
+                            <option value="employee">Employee</option>
+                            <option value="user">User</option>
+                        </select>
+                    </div>
+                <% } %>
+                
+               <button type="submit" class="btn-yellow"><%= param %></button>
+            </form>
+               <!-- Create Blogs -->
+            <% } else if(param == 'create-blog'){%>
+            <form class="blog-form u-bg-black-translucent" method="post" action="/<%= param %>" enctype="multipart/form-data">
+                <div>
+                    <h2 class="heading-secondary u-color-primary-yellow">Create Blog</h2>
+                </div>
+                <div>
+                    <input type="text" name="title" required
+                     id="title" class="input__blog input__blog-title"
+                     placeholder="Click to enter The title">
+                </div>
+                <div>
+                    <select name="category" id="category" class="input__blog" required>
+                        <optgroup>
+                            <option value="other-blogs">Other</option>
+                            <option value="animals">Animals</option>
+                            <option value="birds">Birds</option>
+                            <option value="forest">Forest</option>
+                            <option value="sea">Sea</option>
+                            <option value="wildlife-reserves">Wildlife Reserves</option>
+                            
+                        </optgroup>
+                    </select>
+                </div>
+               <div>
+                <input type="text" name="intro" required
+                 id="intro" class="input__blog input__blog-intro"
+                 placeholder="Click to enter the introduction paragraph for blog">
+               </div>
+               <div>
+                <input type="file" name="image" 
+                    required accept="image/png, image/jpeg"
+                    id="image" class="input__blog">
+               </div>
+            <div>
+                <input type="text" name="description" required
+                id="description" class="input__blog input__blog-description"
+                placeholder="Click / touch here to enter the description for your article with a minimum of 200words and max 1500 words.">
+            </div>
+            <div>
+                <input type="text" name="conclusion" required
+                 id="conclusion" class="input__blog input__blog-conclusion"
+                 placeholder="Click / touch here to enter the conclusion of your article ">
+            </div>
+            <div>
+                <input type="text" name="video" required
+                 id="video" class="input__blog input__blog-video"
+                 placeholder="Enter YT video link -  https://www.youtube.com/watch?v=uELBs3gEzdc ">
+            </div>
+            <button type="submit" class="btn-yellow"><%= param %></button>
+        </form>
+        <!-- Edit Blog -->
+        <% } else if(param == 'edit-blog'){%>
+            <form class="blog-form u-bg-black-translucent" method="post" action="/edit-blog/<%= blog._id %>" enctype="multipart/form-data">
+                <div>
+                    <h2 class="heading-secondary u-color-primary-yellow">Edit Blog</h2>
+                </div>
+                <div>
+                    <input type="text" name="title" required value="<%= blog.title %>"
+                     id="title" class="input__blog input__blog-title"
+                     placeholder="Click to enter The title">
+                </div>
+                <div>
+                    <select name="category" id="category" class="input__blog" required value="<%= blog.category %>">
+                        <optgroup>
+                            <option value="other-blogs">Other</option>
+                            <option value="animals">Animals</option>
+                            <option value="birds">Birds</option>
+                            <option value="forest">Forest</option>
+                            <option value="sea">Sea</option>
+                            <option value="wildlife-reserves">Wildlife Reserves</option>
+                            
+                        </optgroup>
+                    </select>
+                </div>
+               <div>
+                <input type="text" name="intro" required value="<%= blog.intro %>"
+                 id="intro" class="input__blog input__blog-intro"
+                 placeholder="Click to enter the introduction paragraph for blog">
+               </div>
+               <div>
+                <input type="file" name="image" 
+                    required accept="image/png, image/jpeg"
+                    id="image" class="input__blog">
+               </div>
+            <div>
+                <input type="text" name="description" required value="<%= blog.description %>"
+                id="description" class="input__blog input__blog-description"
+                placeholder="Click / touch here to enter the description for your article with a minimum of 200words and max 1500 words.">
+            </div>
+            <div>
+                <input type="text" name="conclusion" required value="<%= blog.conclusion %>"
+                 id="conclusion" class="input__blog input__blog-conclusion"
+                 placeholder="Click / touch here to enter the conclusion of your article ">
+            </div>
+            <div>
+                <input type="text" name="video" required value="<%= blog.video %>"
+                 id="video" class="input__blog input__blog-video"
+                 placeholder="Enter YT video link -  https://www.youtube.com/watch?v=uELBs3gEzdc ">
+            </div>
+            <button type="submit" class="btn-yellow"><%= param %></button>
+        </form>
+                <% } %>
+    </section>
+  
+   </main>
+
+    <%- include("_footer") -%>
+</body>
+</html>

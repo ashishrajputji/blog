@@ -1,0 +1,102 @@
+.u-color-white{
+    color: #fff;
+}
+.u-color-black{
+    color: #000;
+}
+.u-color-grey{
+    color: #777;
+}
+.u-color-twitter{
+    color: rgb(0, 183, 255);
+}
+.u-color-instagram{
+    color: $color-insta;
+}
+.u-color-youtube{
+    color: $color-red;
+}
+.u-color-primary-yellow{
+    color: $color-primary-yellow;
+}
+// background color
+.u-bg-black{
+    background-color: $color-black;
+}
+.u-bg-black-translucent{
+    background-color: rgba($color-black,0.3);
+}
+.u-bg-white{
+    background-color: $color-white;
+}
+
+
+
+// position 
+.u-nav-static{
+    display: block;
+    width: 100vw;
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 10;
+}
+.u-pos-relative-with-z{
+    display: block;
+    width: 100%;
+    position: relative;
+    
+    z-index: 4;
+}
+
+//Margin
+.u-no-margin{
+    margin: 0;
+}
+.u-margin-bottom{
+    margin-bottom: 1rem;
+} 
+.u-margin-top{
+    margin-top: 1rem;
+}
+.u-margin-top-xl{
+    margin-top: 12rem;
+    @media screen and (max-width: 600px){
+        margin-top: 6rem;
+    }
+}
+.u-margin-left-l {
+    margin-left : 4rem;
+}
+.u-margin-right-sm{
+    margin-right : 2rem; 
+}
+//padding
+.u-padding{
+    padding: 5rem 20rem;
+    @media screen and (max-width : 1250px) {
+        padding: 5rem;
+    }
+    @media screen and (max-width : 880px) {
+        padding: 2rem;
+    }
+}
+// Text Fonts and Icons
+.u-text-center{
+    text-align: center;
+}
+// Bold text
+.u-bold{
+    font-weight: 900;
+}
+.u-text-dec-none{
+    text-decoration: none;
+}
+.u-logo{
+    width:4rem !important;
+    height: 4rem !important;
+}
+.u-icons{
+    font-size: 40px;
+    margin-left: 30px;
+}

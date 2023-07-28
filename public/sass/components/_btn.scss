@@ -1,0 +1,96 @@
+.btn-yellow{
+    &, &:link, &:active{
+        text-decoration: none;
+        background-color: $color-primary-yellow;
+        color: $color-black;
+        padding: 1rem 2.5rem;
+        font-size: 2rem;
+        cursor: pointer;
+        border: none;
+        transition: all .5s ease-in;
+    }
+    &:hover,&:focus{
+        background-color: $color-black;
+        color: $color-primary-yellow;
+    }
+}
+.btn-red{
+    &, &:link, &:active{
+        text-decoration: none;
+        background-color: $color-red;
+        color: $color-white;
+        padding: 1rem 2.5rem;
+        font-size: 2rem;
+        cursor: pointer;
+        border: none;
+        transition: all .5s ease-in;
+    }
+    &:hover,&:focus{
+        background-color: $color-insta;
+        color: $color-white;
+    }
+}
+.btn-white{
+    &, &:link,&:active{
+        text-decoration: none;
+        background-color: $color-white;
+        color: $color-black;
+        padding: 1rem 2.5rem;
+        font-size: 2rem;
+        cursor: pointer;
+        border-bottom: 2px solid $color-black ;
+        border-radius: 30% 70% 40% 60% / 93% 83% 17% 7% ;
+    }   
+}
+
+.btn-black-yellow{
+    &,&:link,&:active{
+        text-decoration: none;
+        padding: .1rem 2.5rem;
+        background-image: linear-gradient(90deg,
+        $color-black 0%,
+        $color-black 85%,
+        $color-primary-yellow 85%
+        );  
+        color: $color-white;
+        font-size: 2rem;
+        font-weight: 700;
+    }
+    &:hover , &:active{
+        animation: border-animation 2s ease-in  infinite ;
+        animation-fill-mode: backwards;
+    }
+    @include animation-border;
+}
+
+.btn__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    column-gap: 2rem;
+    margin-bottom: 2rem;
+
+    &-pagination{
+     
+        &,&:link,&:active{
+            color : $color-primary-yellow;
+            background-color: rgba($color-black,0.9);
+            text-decoration: none;
+            text-transform: uppercase;
+            width : 10rem;
+            font-size: 2rem;
+            padding: .5rem 1.2rem;
+            border: 1px solid $color-grey;
+            text-align: center;
+            transition: all .6s ease-in;
+        }
+        &:hover, &:focus{
+            background-color: rgba($color-black,1);
+            color : $color-white;
+            transform: translateY(2px) translateX(1px);
+            box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+        
+        }
+    }
+}

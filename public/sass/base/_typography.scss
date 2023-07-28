@@ -1,0 +1,29 @@
+h1,h2,h3,h4,h5,h6,p{
+    margin: 3rem 0;
+}
+.heading-primary-xl{
+    font-size: 7rem;
+    font-weight: 700;
+}
+.heading-primary{
+    font-size: 5rem;
+    font-weight: 700;
+    @media screen and (max-width: 600px){
+        font-size: 3.6rem;
+    }
+}
+.heading-secondary{
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+.heading-tertiary{
+    font-size: 2rem;
+    font-weight: 400;
+}
+.paragraph{
+    font-size: 1.6rem;
+    line-height: 1.5;
+    @media screen and (max-width : 880px) {
+        font-size: 1.8rem;
+    }
+}

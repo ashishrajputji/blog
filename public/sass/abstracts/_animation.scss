@@ -1,0 +1,8 @@
+@mixin animation-border{
+    @keyframes border-animation {
+        25% {border-right: 2px solid $color-primary-yellow;}
+        50%{border-bottom: 2px solid $color-primary-yellow;}
+        75%{border-left: 2px solid $color-primary-yellow;}
+        100%{border-top: 2px solid $color-primary-yellow;}
+    }
+}

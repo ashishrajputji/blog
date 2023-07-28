@@ -1,0 +1,38 @@
+.blogs{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 2rem;
+    row-gap: 3rem;
+    padding: 2rem 10rem;
+    max-width: 100%;
+    @media screen and (max-width : 880px) {
+        padding: 2%;
+    }
+    @media screen and (max-width : 600px) {
+        flex-direction: column;
+    }
+    &-item {
+        width: 25%; 
+        padding-bottom: 1rem ;
+        @media screen and (max-width : 1250px) {
+            width: 45%;
+        }
+        @media screen and (max-width : 600px) {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        & > div{
+            margin-top: 3rem ;
+            display: flex;
+            flex-direction: column;
+            row-gap: 1rem;
+        }
+        &>img{
+            max-width: 100%;
+            width: 100%;
+        }
+    }
+}

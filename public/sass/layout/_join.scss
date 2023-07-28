@@ -1,0 +1,42 @@
+.join{
+    width: 100%;
+    background-color: $color-secondary-yellow;
+    padding: 5% 2%;
+    position: relative;
+    @media screen and (max-width : 880px) {
+        padding: 2%;
+    }
+    &__container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 4%;
+        padding: 0 10%;
+        @media screen and (max-width : 1250px) {
+            flex-direction: column;
+            padding: 0 1%;
+        }
+        
+        &__item{
+            width: 50%;
+
+            @media screen and (max-width : 1250px) {
+               width: 80%;
+            }
+            @media screen and (max-width : 880px) {
+                width: 100%;
+            }
+            & > .heading-secondary{
+                 position: relative;
+                 & > span{
+                    width: 8rem;
+                    height: 3px;
+                    background-color: $color-primary-yellow;
+                    position: absolute;
+                    top: 4rem;
+                    left: 0;
+                }
+            }
+        }
+    }
+}

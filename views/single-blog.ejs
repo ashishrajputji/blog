@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Nature Explorer</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="../img/nature-logo.png" type="image/x-icon">
+
+    <script src="https://kit.fontawesome.com/5c14429a9d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <div id="top"></div>
+    <!-- Navigation for single page -->
+    <%- include("_white-nav") -%>
+    <!-- Main content -->
+    <main class="u-margin-top-xl">
+        <section class="single__blog">
+            <div class="single__blog-top">
+                <h2 class="heading-secondary u-color-black u-text-center">
+                    <%= blog.title %>
+                </h2>
+                <p class="paragraph u-color-grey">
+                    <%= blog.intro %>
+                </p>
+            </div>
+            <div class="single__blog-img">
+                <img src="data:<%= blog.image.contentType %>;base64,<%= blog.image.data.toString('base64') %>" alt="" srcset="">
+            </div>
+            <div class="single__blog-bottom">
+                <h3 class="heading-tertiary u-color-grey"><%= blog.date %></h3>
+                <p class="paragraph u-color-grey">
+                    <%= blog.description %>    
+                </p>
+                <h3 class="heading-tertiary u-color-black">
+                    Conclusion
+                </h3>
+                <p class="paragraph u-color-grey">
+                    <%= blog.conclusion %>  
+                </p>
+            </div>
+        </section>
+        <section class="Blog__yt">
+            <h1 class="heading-secondary u-color-black  u-text-center">Research Videos </h1>
+            <div class="blogs">
+                <div class="blogs-item">
+                    <iframe width="100%" height="240px"
+                    src="https://www.youtube.com/embed/<%= video %>?muted=1">
+                    </iframe>
+                </div>
+               
+            </div>
+        </section>
+    </main>
+
+    <%- include("_footer") -%>
+</body>
+</html>
