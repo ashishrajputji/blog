@@ -37,14 +37,14 @@
                 </div>
                <div>
                 <input type="password" name="password" required
-                  class="input__blog "
+                  class="input__blog " id="password" 
                  placeholder="password">
                </div>
                <div>
                   
                     <button type="submit" class="btn-yellow"><%= param %></button>
                </div>
-                 <a href="/forget-password" class="btn-white">Forget Password</a>
+                 <a href="/forget-password" class="btn-white u-color-white">Forget Password</a>
                
             </form>    
             <!--forget password --> 
@@ -90,11 +90,11 @@
                         </div>
                         <div>
                             <input type="password" name="password" required
-                              class="input__blog "
-                             placeholder="Password">
+                              class="input__blog " id="password"
+                             placeholder="New Password">
                         </div>
                        <div>
-                       <button type="submit" class="btn-yellow">Reset Password</button>
+                       <button type="submit" class="btn-yellow" id="submit">Reset Password</button>
                     </form> 
                <!-- Signup users -->
             <% } else if(param == 'signup' ){ %>
@@ -114,14 +114,13 @@
                 </div>
                <div>
                 <input type="password" name="password" required
-                  class="input__blog "
+                  class="input__blog " id="password" 
                  placeholder="Create password">
                </div>
                <div>
                 <% if(loggedIn == 'false'){ %>
                     <input type="hidden" name="role" required  value="user"
-                    class="input__blog "
-                   placeholder="Create password">
+                    class="input__blog ">
                  </div>
                 <% } else if(loggedIn == 'true' ){ %>
                     <div>
@@ -133,7 +132,7 @@
                     </div>
                 <% } %>
                 
-               <button type="submit" class="btn-yellow"><%= param %></button>
+               <button type="submit" class="btn-yellow" id="submit"><%= param %></button>
             </form>
                <!-- Create Blogs -->
             <% } else if(param == 'create-blog'){%>

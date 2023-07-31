@@ -399,11 +399,31 @@ app.all('/privacy-policy',(req,res)=>{
 });
 
 // Forget Password route
-app.get('/forget-password',getForgetPassword);
-app.post('/forget-password',postForgetPassword);
+app.get('/forget-password',(req,res,next)=>{
+    if(loggedIn == 'false'){
+        next();
+    } else {
+        res.redirect('/');
+    }},getForgetPassword);
+app.post('/forget-password',(req,res,next)=>{
+    if(loggedIn == 'false'){
+        next();
+    } else {
+        res.redirect('/');
+    }},postForgetPassword);
 // Reset Password route
-app.get('/reset-password',getResetPassword);
-app.post('/reset-password',postResetPassword);
+app.get('/reset-password',(req,res,next)=>{
+    if(loggedIn == 'false'){
+        next();
+    } else {
+        res.redirect('/');
+    }},getResetPassword);
+app.post('/reset-password',(req,res,next)=>{
+    if(loggedIn == 'false'){
+        next();
+    } else {
+        res.redirect('/');
+    }},postResetPassword);
 
 
 //Server and databas connection
